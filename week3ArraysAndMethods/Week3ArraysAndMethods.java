@@ -44,10 +44,9 @@ public class Week3ArraysAndMethods {
       String[] names = {"Sam", "Sally", "Thomas", "Robert"};
       //calculate sum of all letters in new array
       int lettersSum = 0;
+      
       for (int count = 0; count < names.length; count ++) {
-        lettersSum += names[count].length();
-        //System.out.println(names[0].length());
-        
+        lettersSum += names[count].length();        
       } System.out.println("Letter sum = " + lettersSum + ".");
       
     
