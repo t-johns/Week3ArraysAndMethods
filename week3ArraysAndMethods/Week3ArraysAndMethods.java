@@ -31,14 +31,24 @@ public class Week3ArraysAndMethods {
       } while (i < nums.length);
       //create variable avg, assign the average value of array to it
       int avg = (sum / nums.length);
-      System.out.println(avg + "\n");
+      System.out.println("Nums avg: "+ avg + "\n");
       
       //create enhanced for loop that prints out each number in array, only if odd
       for (int myNum: nums) {
         if (myNum % 2 != 0) {
           System.out.println(myNum);
         }
-      }
+      } System.out.println("End odds.\n"); //Ending/space
+      
+      //create an array that contains 4 names, (Sam, Sally, Thomas, Robert).
+      String[] names = {"Sam", "Sally", "Thomas", "Robert"};
+      //calculate sum of all letters in new array
+      int lettersSum = 0;
+      for (int count = 0; count < names.length; count ++) {
+        lettersSum += names[count].length();
+        //System.out.println(names[0].length());
+        
+      } System.out.println("Letter sum = " + lettersSum + ".");
       
     
   
