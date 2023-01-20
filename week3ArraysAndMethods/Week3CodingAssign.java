@@ -55,9 +55,20 @@ public class Week3CodingAssign {
       nameLenSum += nameLengths[t];
       } System.out.println(nameLenSum);
       
-      
-    
-  
+    //7. Result- concattedWord
+      String word = "Hello";
+      int times = 3;
+      String concatWord = concatStringMultInt(word, times);
+      System.out.println(concatWord);
   }
-
+  //7. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
+  public static String concatStringMultInt(String word, int times) {
+    String concattedWord = "";
+    int numOfTimes = 0;
+    do {
+      concattedWord += word;
+      numOfTimes++;
+    } while (numOfTimes < times);
+    return concattedWord;
+  }
 }

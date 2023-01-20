@@ -45,7 +45,7 @@ public class Week3ArraysAndMethods {
       //calculate sum of all letters in new array
       int lettersSum = 0;
       
-      for (int count = 0; count < names.length; count ++) {
+      for (int count = 0; count < names.length; count++) {
         lettersSum += names[count].length();        
       } System.out.println("Letter sum = " + lettersSum + ".");
       
