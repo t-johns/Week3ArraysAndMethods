@@ -56,10 +56,16 @@ public class Week3CodingAssign {
       } System.out.println(nameLenSum);
       
     //7. Result- concattedWord
-      String word = "Hello";
-      int times = 3;
-      String concatWord = concatStringMultInt(word, times);
+      //String word = "Hello";
+      //int times = 3;
+      String concatWord = concatStringMultInt("Hello", 3);
       System.out.println(concatWord);
+      
+    //8.  Result- fullName
+      String firstName = "Ada";
+      String lastName = "Lovelace";
+      String fullName = makeFullName(firstName, lastName);
+      System.out.println(fullName);
   }
   //7. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
   public static String concatStringMultInt(String word, int times) {
@@ -70,5 +76,12 @@ public class Week3CodingAssign {
       numOfTimes++;
     } while (numOfTimes < times);
     return concattedWord;
+  }
+  
+  //8. Write a method that takes two Strings, firstName, lastName, then returns fullName String, with space.
+  public static String makeFullName(String firstName, String lastName) {
+    String fullName = firstName + " " + lastName;    
+    
+    return fullName;
   }
 }
