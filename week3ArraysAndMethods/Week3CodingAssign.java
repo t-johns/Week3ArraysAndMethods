@@ -61,14 +61,21 @@ public class Week3CodingAssign {
       String concatWord = concatStringMultInt("Hello", 3);
       System.out.println(concatWord);
       
-    //8.  Result- fullName
+    //8. Result- fullName
       String firstName = "Ada";
       String lastName = "Lovelace";
       String fullName = makeFullName(firstName, lastName);
       System.out.println(fullName);
+      
+    //9. Result- is array of int > 100
+      System.out.println("Is greater than 100: " + arrGreaterThanHundred(ages));
+      
+    //10. Result- average of all elements in array
+      double[] myArr = {23.8, 22.1, 40, 19.1, 20.8, 29.5};
+      System.out.println("Arr avg: " + avgDoubleArray(myArr));
   }
   //7. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
-  public static String concatStringMultInt(String word, int times) {
+  private static String concatStringMultInt(String word, int times) {
     String concattedWord = "";
     int numOfTimes = 0;
     do {
@@ -79,9 +86,31 @@ public class Week3CodingAssign {
   }
   
   //8. Write a method that takes two Strings, firstName, lastName, then returns fullName String, with space.
-  public static String makeFullName(String firstName, String lastName) {
+  private static String makeFullName(String firstName, String lastName) {
     String fullName = firstName + " " + lastName;    
     
     return fullName;
+  }
+  
+  //9. Write a method that takes an array of int and returns true if the sum of all ints are > 100
+  private static boolean arrGreaterThanHundred(int[] myArr) {
+    int arrSum = 0;
+    for (int num: myArr) {
+      arrSum += num;
+    }
+    if (arrSum > 100) {
+      return true;
+    } return false;
+  }
+  
+  //10. Write a method that takes an array of double and returns the average of all elements in the array.
+  private static double avgDoubleArray(double[] arr) {
+    double arrSum = 0;
+    
+    for (double num: arr) {
+      arrSum += num;
+    } 
+    double arrayAvg = arrSum / arr.length ;
+    return arrayAvg;
   }
 }
