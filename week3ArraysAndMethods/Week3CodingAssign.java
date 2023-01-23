@@ -73,6 +73,10 @@ public class Week3CodingAssign {
     //10. Result- average of all elements in array
       double[] myArr = {23.8, 22.1, 40, 19.1, 20.8, 29.5};
       System.out.println("Arr avg: " + avgDoubleArray(myArr));
+      
+    //11. Result- arrA average > arrB average
+      double[] myArrB = {82.1, 21.9, 32.8, 18.1, 9, 8};
+      System.out.println("ArrA > arrB: " + isArrAvgGreater(myArr, myArrB));
   }
   //7. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
   private static String concatStringMultInt(String word, int times) {
@@ -112,5 +116,39 @@ public class Week3CodingAssign {
     } 
     double arrayAvg = arrSum / arr.length ;
     return arrayAvg;
+  }
+  
+  //11. Write a method that takes two arrays of double and returns true if the average of first array > average of second
+  private static boolean isArrAvgGreater(double[] arrA, double[] arrB) {
+    double arrASum = 0; //calculate sums
+    double arrBSum = 0; //calculate sums
+    
+    for (int j=0; j<arrA.length; j++) { // start loop with incrementing variable
+      
+      while (j<arrA.length && j<arrB.length) { //loop while j<arrA && j<arrB
+        arrASum += arrA[j];
+        arrBSum += arrB[j];
+       
+      } if (arrA.length > arrB.length) { //if arrA.length > arrB.length, continue until arrASum complete
+        while (j<arrA.length) {
+          arrASum += arrA[j];
+          j++;
+        }
+      } else { //else arrB.length > arrA.length, complete arrBSum
+        while (j<arrB.length) { 
+          arrBSum += arrB[j];
+          j++;
+        }
+      }
+    }
+    double arrAAvg = arrASum / arrA.length; //arr avgs
+    double arrBAvg = arrBSum / arrB.length; //arr avgs
+    if (arrAAvg > arrBAvg) {
+      return true;
+    } else {
+      return false;
+    }
+    //boolean arrAIsGreater = arrAAvg > arrBAvg; //arrA avg > arrB avg boolean
+    //return arrAIsGreater;
   }
 }
