@@ -76,8 +76,12 @@ public class Week3CodingAssign {
       
     //11. Result- arrA average > arrB average
       double[] myArrB = {82.1, 21.9, 32.8, 18.1, 9, 8};
-      boolean arrAGreater = isArrAvgGreater(myArr, myArrB);
-      System.out.println(arrAGreater);
+      System.out.println("arrA > arrB: " + isArrAvgGreater(myArr, myArrB));
+      
+    //12. Result- will we buy a drink?
+      boolean isHotOutside = true;
+      double moneyInPocket = 10.55;
+      System.out.println("Will buy drink: " + willBuyDrink(isHotOutside, moneyInPocket));
   }
   //7. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
   private static String concatStringMultInt(String word, int times) {
@@ -124,33 +128,34 @@ public class Week3CodingAssign {
     double arrASum = 0; //calculate sums
     double arrBSum = 0; //calculate sums
     int j = 0;
-//    for (int j=0; j<arrA.length; j++) { // start loop with incrementing variable
       
-      while (j<arrA.length && j<arrB.length) { //loop while j<arrA && j<arrB
+    while (j<arrA.length && j<arrB.length) { //loop while j<arrA && j<arrB
+      arrASum += arrA[j];
+      arrBSum += arrB[j];
+      j++;     
+    } if (arrA.length > arrB.length) { //if arrA.length > arrB.length, continue until arrASum complete
+      while (j<arrA.length) {
         arrASum += arrA[j];
+        j++;
+      }
+    } else { //else arrB.length > arrA.length, complete arrBSum
+      while (j<arrB.length) { 
         arrBSum += arrB[j];
         j++;
-       
-      } if (arrA.length > arrB.length) { //if arrA.length > arrB.length, continue until arrASum complete
-        while (j<arrA.length) {
-          arrASum += arrA[j];
-          j++;
-        }
-      } else { //else arrB.length > arrA.length, complete arrBSum
-        while (j<arrB.length) { 
-          arrBSum += arrB[j];
-          j++;
-        }
       }
-//    }
+    }
+
     double arrAAvg = arrASum / arrA.length; //arr avgs
     double arrBAvg = arrBSum / arrB.length; //arr avgs
-    if (arrAAvg > arrBAvg) {
-      return true;
-    } else {
-      return false;
+    return arrAAvg > arrBAvg;
+
     }
-    //boolean arrAIsGreater = arrAAvg > arrBAvg; //arrA avg > arrB avg boolean
-    //return arrAIsGreater;
+
+  private static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+    if (isHotOutside == true) {
+      if (moneyInPocket > 10.50) {
+        return true;
+      }
+    } return false;
   }
 }
