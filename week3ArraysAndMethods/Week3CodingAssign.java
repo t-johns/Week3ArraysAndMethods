@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class Week3CodingAssign {
 
@@ -88,13 +89,18 @@ public class Week3CodingAssign {
       
     //13. Is week 4 complete? Worry no more with a boolean piece of mind to tell you if you have completed your assignments
       //boolean week4IsComplete = false;
-      String watchedVids = "y";
-      String attendedClass = "y";
-      String openClassMastery = "y";
-      String codingAssignment = "n";
-      String researchAssignment = "n";
+      System.out.println("Have you completed the following? y/n");
+      getWeek4AssignmentsHashMap();
       
-      isWeek4Complete(watchedVids, attendedClass, openClassMastery, codingAssignment, researchAssignment);
+      //String watchedVids = assignmentResponse.nextLine();
+      //String attendedClass = assignmentResponse.nextLine();
+      //String openClassMastery = assignmentResponse.nextLine();
+      //String codingAssignment = assignmentResponse.nextLine();
+      //String researchAssignment = assignmentResponse.nextLine();
+      //String linkedinPost = assignmentResponse.nextLine();
+      
+      //System.out.println(makeWeek4AssignmentsArrayList(watchedVids, attendedClass, openClassMastery, codingAssignment, researchAssignment, linkedinPost));
+      //isWeek4Complete(watchedVids, attendedClass, openClassMastery, codingAssignment, researchAssignment, linkedinPost);
       
       
 
@@ -180,35 +186,65 @@ public class Week3CodingAssign {
   }
   //13. Create a method that solves a problem
   // isWeek4Complete
-  public static HashMap<String, String> isWeek4Complete(String watchedVids, String attendedClass, String openClassMastery, String codingAssignment, String researchAssignment) {
+  public static HashMap<String, String> getWeek4AssignmentsHashMap() {
+    //create Assignment list
     HashMap<String, String> week4Assignments = new HashMap<String, String>(); // all assignments
-    HashMap<String, String> incomplete = new HashMap<String, String>(); //incomplete to track
+    week4Assignments.put("Watched Videos", null); //Hashmap Assignment key/answer
+    week4Assignments.put("Attended Class", null);
+    week4Assignments.put("OpenClass Mastery", null);
+    week4Assignments.put("Coding Assignment", null);
+    week4Assignments.put("Research Assignment", null);
+    week4Assignments.put("LinkedIn Post", null);
     
-    week4Assignments.put("Watched Videos", watchedVids); //Hashmap Assignment key/answer
-    week4Assignments.put("Attended Class", attendedClass);
-    week4Assignments.put("OpenClass Mastery", openClassMastery);
-    week4Assignments.put("Coding Assignment", codingAssignment);
-    week4Assignments.put("Research Assignment", researchAssignment);
+    //String nextInput = new bj.nextLine(System.in);
+    for (String key: week4Assignments.keySet()) {
+      Scanner assignmentResponse = new Scanner(System.in);
+      System.out.println(key + ": "); //key name
+      
+      String nextResponse = assignmentResponse.nextLine();
+      week4Assignments.put(key, nextResponse);
+      
+      System.out.println(week4Assignments);
+      
+    
+    }
+    
+    //for (String assignment: week4Assignments) {
+    //  System.out.println(assignment  + ": ");
+    //  List<String> watchedVids = assignmentResponse.nextLine();
+    //}
+    System.out.println(week4Assignments.values());
+    return week4Assignments;
+    
+  }
+  
+  public static HashMap<String, String> isWeek4Complete(String watchedVids, String attendedClass, String openClassMastery, String codingAssignment, String researchAssignment) {
+    HashMap<String, String> incomplete = new HashMap<String, String>(); //incomplete to track
+    //week4Assignments.put("Watched Videos", watchedVids); //Hashmap Assignment key/answer
+    //week4Assignments.put("Attended Class", attendedClass);
+    //week4Assignments.put("OpenClass Mastery", openClassMastery);
+    //week4Assignments.put("Coding Assignment", codingAssignment);
+    //week4Assignments.put("Research Assignment", researchAssignment);
 
     //for (int i = 0; i < week4Assignments.size(); i++) {
     //    System.out.println(week4Assignments.get("Watched Videos; ", watchedVids));
     //    System.out.println(week4Assignments.values());
     //}
-    for (String assignment: week4Assignments.keySet()) { // for assignment in week4Assignment keyset
+    //for (String assignment: week4Assignments.keySet()) { // for assignment in week4Assignment keyset
         
-        if (week4Assignments.get(assignment).equals("n")) { // if keySet.equals("n") ;          
-          incomplete.put(assignment, week4Assignments.get(assignment)); // add to incomplete
-        }
+        //if (week4Assignments.get(assignment).equals("n")) { // if keySet.equals("n") ;          
+        //  incomplete.put(assignment, week4Assignments.get(assignment)); // add to incomplete
+       // }
         //System.out.print(assignment + ": "); // get assignment name
         //System.out.println(week4Assignments.get(assignment)); // get value
-    }
-    if (incomplete.size() > 0) {      
-      System.out.println("I N C O M P L E T E: "); //incomplete warning
+    //}
+   // if (incomplete.size() > 0) {      
+    //  System.out.println("I N C O M P L E T E: "); //incomplete warning
       
-      for (String incompleteAssignment: incomplete.keySet()) {
-        System.out.println(incompleteAssignment);
-      }
-    }
+      //for (String incompleteAssignment: incomplete.keySet()) {
+       // System.out.println('"' + incompleteAssignment + '"' + " still needs to be completed.");
+     // }
+    //}
 
         //for (String assignment: week4Assignments()) {
           
