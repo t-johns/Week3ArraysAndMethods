@@ -2,11 +2,12 @@ package week3ArraysAndMethods;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 public class Week3CodingAssign {
+
+  static Scanner scanner = new Scanner(System.in); //get response to populate values
 
   public static void main(String[] args) {
     //1. Create an array of int called ages containing values 3, 9, 23, 64, 2, 8, 28, 93
@@ -87,30 +88,16 @@ public class Week3CodingAssign {
       double moneyInPocket = 10.55;
       System.out.println("Will buy drink: " + willBuyDrink(isHotOutside, moneyInPocket));
       
-    //13. Is week 4 complete? Worry no more with a boolean piece of mind to tell you if you have completed your assignments
-      //boolean week4IsComplete = false;
-      System.out.println("Have you completed the following? y/n");
-      getWeek4AssignmentsHashMap();
-      
-      //String watchedVids = assignmentResponse.nextLine();
-      //String attendedClass = assignmentResponse.nextLine();
-      //String openClassMastery = assignmentResponse.nextLine();
-      //String codingAssignment = assignmentResponse.nextLine();
-      //String researchAssignment = assignmentResponse.nextLine();
-      //String linkedinPost = assignmentResponse.nextLine();
-      
-      //System.out.println(makeWeek4AssignmentsArrayList(watchedVids, attendedClass, openClassMastery, codingAssignment, researchAssignment, linkedinPost));
-      //isWeek4Complete(watchedVids, attendedClass, openClassMastery, codingAssignment, researchAssignment, linkedinPost);
-      
-      
+    //13. Is week 4 complete? Worry no more with a Listed piece of mind to tell you if you have completed your assignments
+    // Assignments manually in createWeeklyAssignmentList
+      List<String> weeklyAssignments = new ArrayList<String>(); // create ArrayList for Assignments
 
+      createWeeklyAssignmentList(weeklyAssignments);
         
-      }
-      
-      
+      }   
   
-  //7. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
-  private static String concatStringMultInt(String word, int times) {
+  //7. Method. Write method that takes a String- word, and int- n. Method returns word*int, eg 'hi', 3="hihihi"
+  public static String concatStringMultInt(String word, int times) {
     String concattedWord = "";
     int numOfTimes = 0;
     do {
@@ -120,15 +107,15 @@ public class Week3CodingAssign {
     return concattedWord;
   }
   
-  //8. Write a method that takes two Strings, firstName, lastName, then returns fullName String, with space.
+  //8. Method. Write a method that takes two Strings, firstName, lastName, then returns fullName String, with space.
   private static String makeFullName(String firstName, String lastName) {
     String fullName = firstName + " " + lastName;    
     
     return fullName;
   }
   
-  //9. Write a method that takes an array of int and returns true if the sum of all ints are > 100
-  private static boolean arrGreaterThanHundred(int[] myArr) {
+  //9. Method. Write a method that takes an array of int and returns true if the sum of all ints are > 100
+  public static boolean arrGreaterThanHundred(int[] myArr) {
     int arrSum = 0;
     for (int num: myArr) {
       arrSum += num;
@@ -138,8 +125,8 @@ public class Week3CodingAssign {
     } return false;
   }
   
-  //10. Write a method that takes an array of double and returns the average of all elements in the array.
-  private static double avgDoubleArray(double[] arr) {
+  //10. Method. Write a method that takes an array of double and returns the average of all elements in the array.
+  public static double avgDoubleArray(double[] arr) {
     double arrSum = 0;
     
     for (double num: arr) {
@@ -149,8 +136,8 @@ public class Week3CodingAssign {
     return arrayAvg;
   }
   
-  //11. Write a method that takes two arrays of double and returns true if the average of first array > average of second
-  private static boolean isArrAvgGreater(double[] arrA, double[] arrB) {
+  //11. Method. Write a method that takes two arrays of double and returns true if the average of first array > average of second
+  public static boolean isArrAvgGreater(double[] arrA, double[] arrB) {
     double arrASum = 0; //calculate sums
     double arrBSum = 0; //calculate sums
     int j = 0;
@@ -176,94 +163,61 @@ public class Week3CodingAssign {
     return arrAAvg > arrBAvg;
     }
   
-  //12. Write a method called willBuyDrink that takes boolean isHotOutside and double moneyInPocket. Return true if it is hot outside and moneyInPocket > 10.50
-  private static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+  //12. Method. Write a method called willBuyDrink that takes boolean isHotOutside and double moneyInPocket. Return true if it is hot outside and moneyInPocket > 10.50
+  public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
     if (isHotOutside == true) {
       if (moneyInPocket > 10.50) {
         return true;
       }
     } return false;
   }
-  //13. Create a method that solves a problem
-  // isWeek4Complete
-  public static HashMap<String, String> getWeek4AssignmentsHashMap() {
-    //create Assignment list
-    HashMap<String, String> week4Assignments = new HashMap<String, String>(); // all assignments
-    week4Assignments.put("Watched Videos", null); //Hashmap Assignment key/answer
-    week4Assignments.put("Attended Class", null);
-    week4Assignments.put("OpenClass Mastery", null);
-    week4Assignments.put("Coding Assignment", null);
-    week4Assignments.put("Research Assignment", null);
-    week4Assignments.put("LinkedIn Post", null);
+  //13. Method. Create a method of your own that solves a problem
+  // create a list of the assignments for the week. create a loop that asks if you've completed them and only takes y/n answers.
+  // at the end print an update on complete and incomplete assignments with a message for each.
+  public static List createWeeklyAssignmentList(List<String> weeklyAssignments) {
+    weeklyAssignments.add("Watched Videos"); //list of assignments
+    weeklyAssignments.add("Attended Class");
+    weeklyAssignments.add("OpenClass Mastery");
+    weeklyAssignments.add("Coding Assignment");
+    weeklyAssignments.add("Research Assignment");
+    weeklyAssignments.add("LinkedIn Post");
     
-    //String nextInput = new bj.nextLine(System.in);
-    for (String key: week4Assignments.keySet()) {
-      Scanner assignmentResponse = new Scanner(System.in);
-      System.out.println(key + ": "); //key name
-      
-      String nextResponse = assignmentResponse.nextLine();
-      week4Assignments.put(key, nextResponse);
-      
-      System.out.println(week4Assignments);
-      
+    List<String> isComplete = new ArrayList<String>(); // assign complete/incomplete lists
+    List<String> isNotComplete = new ArrayList<String>();
     
+    System.out.println("Have you completed the following? y/n"); //prompt user for input
+    
+    for (int i = 0; i < weeklyAssignments.size(); i++) {
+      System.out.print(weeklyAssignments.get(i) + ": "); //display assignment
+      String isCompleteResponse = scanner.nextLine(); // user input
+      
+      if (isCompleteResponse.equals("y")) { //if "y" is complete
+        isComplete.add(weeklyAssignments.get(i));    
+      } 
+      else if (isCompleteResponse.equals("n")) { // "n" isNotComplete check. 
+        isNotComplete.add(weeklyAssignments.get(i));
+      }
+      else { // if input != "y" or "n"
+        System.out.println("Please enter a valid answer."); // proper input please
+        i--;
+        }        
     }
     
-    //for (String assignment: week4Assignments) {
-    //  System.out.println(assignment  + ": ");
-    //  List<String> watchedVids = assignmentResponse.nextLine();
-    //}
-    System.out.println(week4Assignments.values());
-    return week4Assignments;
+    System.out.println("So far you have completed- " + isComplete + "\n");
     
-  }
-  
-  public static HashMap<String, String> isWeek4Complete(String watchedVids, String attendedClass, String openClassMastery, String codingAssignment, String researchAssignment) {
-    HashMap<String, String> incomplete = new HashMap<String, String>(); //incomplete to track
-    //week4Assignments.put("Watched Videos", watchedVids); //Hashmap Assignment key/answer
-    //week4Assignments.put("Attended Class", attendedClass);
-    //week4Assignments.put("OpenClass Mastery", openClassMastery);
-    //week4Assignments.put("Coding Assignment", codingAssignment);
-    //week4Assignments.put("Research Assignment", researchAssignment);
-
-    //for (int i = 0; i < week4Assignments.size(); i++) {
-    //    System.out.println(week4Assignments.get("Watched Videos; ", watchedVids));
-    //    System.out.println(week4Assignments.values());
-    //}
-    //for (String assignment: week4Assignments.keySet()) { // for assignment in week4Assignment keyset
+    if (isNotComplete.size() > 0) {
+      System.out.println("You are not done for the week,");
+      System.out.println("The following assignments still need to be done- " + isNotComplete);
+    } else if (isNotComplete.size() == 0) {
+      System.out.println("YOU'VE FINISHED! Time to start next week's :)");
+    }
+    
+    return weeklyAssignments;
         
-        //if (week4Assignments.get(assignment).equals("n")) { // if keySet.equals("n") ;          
-        //  incomplete.put(assignment, week4Assignments.get(assignment)); // add to incomplete
-       // }
-        //System.out.print(assignment + ": "); // get assignment name
-        //System.out.println(week4Assignments.get(assignment)); // get value
-    //}
-   // if (incomplete.size() > 0) {      
-    //  System.out.println("I N C O M P L E T E: "); //incomplete warning
-      
-      //for (String incompleteAssignment: incomplete.keySet()) {
-       // System.out.println('"' + incompleteAssignment + '"' + " still needs to be completed.");
-     // }
-    //}
-
-        //for (String assignment: week4Assignments()) {
-          
-     //   }
+      //}
+    }
     
-
-    
-    
-    //System.out.println(incomplete);
-    return incomplete;
-    //if (input.equals("n")
-    //for (boolean assignment: week4Complete) {
-    //  if (assignment == false) {
-    //    return false;
-    //  } else {
-    //    return true;
-     // }
-  }
   
-  
+
   }  
-//}
+
